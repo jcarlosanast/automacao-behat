@@ -1,0 +1,46 @@
+default:
+  translation:
+    locale: pt
+  suites:
+    test1:
+      paths: [ %paths.base%/tests/functional/features/Logar ]
+      contexts:
+        - FeatureContext
+    test2:
+      paths: [ %paths.base%/tests/functional/features/Parceiro ]
+      contexts:
+        - FeatureContext
+    test3:
+      paths: [ %paths.base%/tests/functional/features/PesquisaParceiro ]
+      contexts:
+        - FeatureContext
+    test4:
+      paths: [ %paths.base%/tests/functional/features/Campanha ]
+      contexts:
+        - FeatureContext
+    test5:
+      paths: [ %paths.base%/tests/functional/features/PesquisaCampanha ]
+      contexts:
+        - FeatureContext
+    test6:
+      paths: [ %paths.base%/tests/functional/features/FluxoSite ]
+      contexts:
+        - SiteContext
+    test7:
+      paths: [ %paths.base%/tests/functional/features/Relatorio ]
+      contexts:
+        - FeatureContext
+  extensions:
+    Behat\MinkExtension:
+      default_session: goutte
+      javascript_session: selenium2
+      #browser_name: 'chrome'
+      goutte: ~
+      selenium2:
+        wd_host: "http://dhc-grid-hub.servers:4444/wd/hub"
+        capabilities:
+          version: ''
+          proxy:
+            proxyType: 'manual'
+            httpProxy: 'devweb13vs.devel:8181'
+            sslProxy: 'devweb13vs.devel:8181'
